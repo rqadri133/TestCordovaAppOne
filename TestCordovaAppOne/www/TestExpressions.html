@@ -1,0 +1,72 @@
+﻿<!---Infosys innovation Team-->
+<div ng-controller="TestExpressionController as testEctrl" class="row">
+    <div ng-show="showStepOne">
+        <div class="row">
+            <div class="col col-lg-offset-0">
+                <label>
+                    For the Connection Type
+                </label>
+                <select ng-model="selTestConnectionID" ng-options="item.TestConnectionID as item.TestConnectionName for item in testConnectionsAll"></select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-lg-offset-3">
+                <button id="btnSubmitStepOne" ng-click="nextStep()" class="btn btn-dcyan"> Next </button>
+            </div>
+        </div>
+    </div>
+    <div ng-show="showStepTwo" class="row">
+        <button id="btnRemove"  ng-show="showRemove" class="btn btn-danger"> Remove Selected </button>
+
+        <button id="btnUpdateDataSource" ng-click="addDataSource()" class="btn btn-primary"> Update Data Source </button>
+        <br />
+        <br />
+            
+            <br />
+            <div ng-repeat="counterCondition in counterConditions">
+                <div class="col col-lg-offset-0">
+                    <input ng-model="checkthisValue" ng-checked="callUpdate(checkthisValue ,counterCondition.counter)"  type="checkbox" checked="" />
+                    Select the Table :
+                    <select ng-model="selectedTableName" ng-change="loadColumns(selectedTableName,counterCondition.counter)" ng-options="item.TestTableName as item.TestTableName for item in testTables"></select>
+                </div>
+                <div class="col col-lg-offset-0">
+                    For the Column :
+                    <select  ng-model="selTestColumnID" ng-change="updateColumn(selTestColumnID, selTestOperandID, counterCondition.counter)" ng-options="item.TestColumnName as item.TestColumnName for item in  counterCondition.testColumns"></select>
+                    Data Type : <input ng-model="counterCondition.selectedDataType"  type="text"  />
+                    <input ng-model="counterCondition.maxlength"  type="text" />
+                    
+
+                    Where It should be : <select ng-model="selTestOperandID"  ng-change="updateOperand(selTestOperandID,counterCondition.counter)"   ng-options="item.Operand as item.Operand for item in testOperands"></select><input type="text" ng-text-change="updateTestValue()"   value="Enter any Alpha Numeric Value" ng-model="checkthisValue" />
+                    <!---ng-change="updateColumn(selTestColumnID,counterCondition.counter)
+                    ng-change="updateOperand(counterCondition.counter,selTestOperandID)"-->
+
+                </div>
+                <br />
+                <br />
+
+            </div>
+
+            <br />
+
+            FOR "AND OR"  CONDITION REPEAT ABOVE PROCESS : <select ng-model="selTestAndOrID" ng-options="item.lexicalToken as item.lexicalToken for item in testLogicals"></select>
+            <button id="btnAddLogicalCondition" ng-click="addCondition(selTestAndOrID)" class="btn btn-green"> Add Another Condition </button>
+            <button id="btnSubmitStepTwo" ng-click="ExecuteScript(counterConditions)" class="btn btn-dcyan"> Generate Script </button>
+       
+    </div>
+ 
+    <br />
+    <div class="row">
+        <div ng-show="showComplexExpression" class="col col-lg-offset-0">
+            Generated Expression <br />
+            {{evaluatedxpression}} 
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</div>

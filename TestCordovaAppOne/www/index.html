@@ -5,24 +5,189 @@
         Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
         For details, see http://go.microsoft.com/fwlink/?LinkID=617521
     -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://api.openweathermap.org   https://ssl.gstatic.com    'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
         
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+        
+        <link href="css/bootstrap.css" rel="stylesheet" />
+
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+       
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+        <link href="css/customtheme.css" rel="stylesheet" />
+
+
+        <link href="css/angular-material.css" rel="stylesheet" />
+        <link href="css/angular-material.min.css" rel="stylesheet" />
+        <link href="css/angular-material.layout-attributes.css" rel="stylesheet" />
+        <link href="css/angular-material.layouts.css" rel="stylesheet" />
+        <link href="css/angular-material.layouts.ie_fixes.css" rel="stylesheet" />
+        <link href="css/angular-material.layouts.min.css" rel="stylesheet" />
+
+       
         <title>TestCordovaAppOne</title>
+
+
+        
     </head>
-    <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
+    <body ng-app="TFApp">
+       
+        
+
+
+   
+
+    <div class="col-lg-offset-0">
+          
+          <h3 class="page page-header">
+           
+              <img src="images/dragon-fruit-nutrition-facts.jpg"/>
+                   Test Framework portal
+          
+           </h3>
+             
+
+   </div>
+        <div class="tabsdemoDynamicHeight" ng-controller="LoginController as log">
+            <md-content ng-show="parentObj.beforeLogin">
+                <md-tabs md-border-bottom="" md-dynamic-height="">
+                    <md-tab label="About">
+                        <md-content class="md-padding">
+                            <h1 class="md-display-2">How it works</h1>
+                            <p>
+                                A test framework portal will provide a test developer or a developer to track data nodes by creating test cases , each test case could be customized to take injected test script for any current service inorder to test the currently
+                                running services. The developer can attach already design test script or generate a new test script by just injecting a new conditional expression and it will generate the code in C# to test the desired complex logic.
+                            </p>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Demo">
+                        <md-content class="md-padding">
+                            <ng-include src="'demorequest.html'"></ng-include>
+                        </md-content>
+                    </md-tab>
+
+                    <md-tab label="Login">
+                        <md-content class="md-padding">
+                            <ng-include src="'login.html'"></ng-include>
+
+                        </md-content>
+                    </md-tab>
+                </md-tabs>
+            </md-content>
+
+
+            <md-content ng-show="parentObj.afterLogin">
+                <md-tabs md-border-bottom="" md-dynamic-height="">
+
+
+                    <md-tab label="System Admin">
+                        <md-content class="md-padding">
+                            <label class="label label-info">Test Configurations Required </label>
+                            <p>
+                                <ng-include src="'Users.html'"></ng-include>
+                            </p>
+                        </md-content>
+                    </md-tab>
+
+                    <md-tab label="Test Case">
+                        <md-content class="md-padding">
+                            <ng-include src="'TestCase.html'"></ng-include>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Test Connection">
+                        <md-content class="md-padding">
+                            <div class="row">
+                                <div class="col col-md-offset-1">
+
+                                    <div class="widget widget-content">
+                                        <ng-include src="'TestConnections.html'"></ng-include>
+                                    </div>
+                                </div>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Test Script">
+                        <md-content class="md-padding">
+                            <div class="row">
+                                <div class="col col-md-offset-1">
+
+                                    <div class="widget widget-content">
+                                        <!--check test -->
+                                        <ng-include src="'TestExpressions.html'"></ng-include>
+
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Test Robot">
+                        <md-content class="md-padding">
+                            <div class="row">
+                                <div class="col col-md-offset-1">
+
+                                    <div class="widget widget-content">
+                                        <ng-include src="'TestRobot.html'"></ng-include>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </md-content>
+                    </md-tab>
+
+                </md-tabs>
+            </md-content>
+
         </div>
+        
+
+
+
+
+        <script src="scripts/angular.js"></script>
+        <script src="scripts/angular-animate.js"></script>
+
+        <script src="scripts/angular.min.js"></script>
+        <script src="scripts/angular-route.js"></script>
+        <script src="scripts/angular-material.js"></script>
+        <script src="scripts/angular-material.min.js"></script>
+
+        <script src="scripts/angular-aria.js"></script>
+        <script src="scripts/angular-animate.min.js"></script>
+        <script src="scripts/angular-aria.min.js"></script>
+
+        <script src="scripts/angular-messages.js"></script>
+        <script src="scripts/angular-messages.min.js"></script>
+        <script src="scripts/angular-resource.js"></script>
+        <script src="scripts/angular-resource.min.js"></script>
+
+
+
+      
+
+
+          
+        <script src="scripts/jquery-3.1.1.min.js"></script>
+        <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+        <script src="scripts/bootstrap.js"></script>
+        <script src="scripts/bootstrap.min.js"></script>
+
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers.js"></script>
+        <script src="scripts/services.js"></script>
+
+
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="scripts/platformOverrides.js"></script>
         <script type="text/javascript" src="scripts/index.js"></script>
+        <script type="text/javascript" src="scripts/weather.js"></script>
+
     </body>
 </html>

@@ -1,0 +1,49 @@
+﻿<!---Infosys innovation Team-->
+<div ng-controller="TestConnectionController as testctrlCon" class="row">
+    <form id="frmTestCaseConnection" ng-model="testConnectionObj" ng-submit="addTestConnection(testConnectionObj)" >
+        <div class="col col-md-offset-1">
+            <div class="widget widget-content">
+                <table class="table">
+                    <tr>
+                        <td class="col col-md-offset-1">
+                            <b>Select Connection Type</b> <br />
+                             <select ng-model="testConnectionObj.TestConnectionTypeID"  ng-options="testCon.TestConnectionTypeID as testCon.TestConnctionTypeName for testCon in testConnectionTypes"></select>
+                        </td>
+
+                     </tr>
+                     <tr> 
+                     <td class="col col-md-offset-1">
+                            <b>Enter Connection Name</b> <br />
+                            <input required="required" ng-model="testConnectionObj.TestConnectionName"  type="text"  />
+                     </td>
+                    </tr>
+                    <tr>
+                        <td class="col col-md-offset-1">
+                            <b>Enter Connection String</b> <br />
+                            <input max="800" required="required" ng-model="testConnectionObj.TestConnectionString" type="text" />
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td  class="col col-md-offset-">
+                            <button id="btnCaseSaveCon" class="btn btn-primary"> Save  </button>
+                            <button id="btnCancel" class="btn btn-danger"> Cancel </button>
+                        </td>
+                    </tr>
+                    <tr>
+                     <td align="right" class="col col-md-offset-2">
+                            <label ng-show="showSuccessCon"  id="btnCaseSave" class="label label-success"> {{testConnectionMessage}}  </label>
+                            <label ng-show="showFailedCon" id="btnCaseSave" class="label label-danger"> {{testConnectionMessage}}  </label>
+                     </td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+
+    </form>
+
+
+</div>

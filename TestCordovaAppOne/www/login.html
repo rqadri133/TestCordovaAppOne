@@ -1,0 +1,42 @@
+﻿<div ng-controller="LoginController" class="row">
+    <div class="col col-md-offset-1">
+
+        <div class="widget widget-content">
+
+            <table class="table table-condensed">
+                <tr>
+                    <td>
+                        &nbsp;
+                        &nbsp;
+                        <b>Enter User information</b> <br />
+                        <input required="required" title="User ID" id="txtUserID" ng-model="txtUserID" type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
+                        &nbsp;
+
+                        <b>Enter Password </b> <br />
+                        <input required="required" title="User ID" id="txtUserID" ng-model="txtPwd" type="password" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <button ng-click="login()" id="btnSubmit" class="btn btn-primary"> Submit  </button>
+                        <button id="btnCancel" class="btn btn-danger"> Cancel </button>
+                    </td>
+
+                </tr>
+
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+
+</div>

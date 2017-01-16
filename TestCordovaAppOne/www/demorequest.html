@@ -1,0 +1,91 @@
+﻿<div ng-controller="DemoController as ctrlDemo" class="row">
+    
+    <div  name="Demo">
+        <div class="col col-md-offset-1">
+            <div class="widget widget-content">
+                <table class="table table-condensed">
+                    <tr>
+                        <td>
+                            <b>Enter Email (Preferred Business Email) </b> <br />
+
+                            <input required="required" ng-model="emailAddress" type="email" name="email" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Enter Company Name</b> <br />
+                            <input required="required" id="txCompanyName" ng-model="companyName" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Enter Company WebSite</b> <br />
+                            <input required="required" id="txCompanyWeb" ng-model="companyWebsite" type="text" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <b>First Name</b> <br />
+                            <input required="required" ng-model="firstName" type="text" /> <br />
+                            <b>Last Name</b> <br />
+                            <input required="required" ng-model="lastName" type="text" />
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Contact Number</b> <br />
+                            <input required="required" ng-model="phoneNumber" type="tel" />
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Enter User ID</b> <br />
+                            <input required="required" ng-model="loginName" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <b>Enter Password </b> <br />
+                            <input required="required" title="Pwd" id="txtPwd" ng-model="txtPwd" type="password" />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <b>Confirm Password </b> <br />
+                            <input required="required" ng-model="txtConfPwd" type="password" />
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <button id="btnSaveUser" type="button" ng-click="addUserInformation()"  class="btn btn-primary"> Submit  </button>
+                            <button id="btnCancelUser" class="btn btn-danger"> Cancel </button>
+                        </td>
+
+                    </tr>
+
+
+                </table>
+                <div class="col-lg-offset-5">
+                    <label class="label label-success"> {{demoSaved}}  </label>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    
+
+
+
+</div>

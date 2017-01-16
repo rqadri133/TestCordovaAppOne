@@ -1,0 +1,33 @@
+﻿<!---Infosys innovation Team-->
+<div  ng-controller="TestScriptController as testScript"  class="row">
+    <div class="widget widget-content">
+        <table class="table">
+            <tr>
+                <td class="col col-md-offset-1">
+                    <b>Sequence Number </b> <br />
+                    <input required title="Enter Sequence Number" type="text" ng-model="testScript.sequenceNumber" />
+              </td>
+              <td class="col col-md-offset-1">
+                    <b>Select Expression </b> <br />
+                     <select ng-model="testScript.TestExpressionID" ng-options="testExp.TestExpressionID as testExp.TestExpressionDesc for testExp in testExpressions"></select>
+                 </td>
+            </tr>
+        </table>
+        <div class="col col-sm-offset-5">
+            <button ng-click="generateScript()" class="btn btn-primary"> Generate Script </button>
+            <button ng-click="resetExpressionParams()" id="btnExpressionCancel" class="btn btn-danger"> Cancel </button>
+        </div>
+
+        <div class="col col-sm-offset-5">
+            <label  ng-show="IsSuccessScript"  class="btn btn-success"> {{ testScriptSuccessMessage }}  </label>
+            <label  ng-show="IsFailedScript"  class="btn btn-danger"> {{ testScriptSuccessMessage }} </label>
+        </div>
+
+
+
+    </div>
+  
+
+    
+ </div>
+

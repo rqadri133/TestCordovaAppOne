@@ -1,0 +1,183 @@
+﻿<div ng-controller="LoginController"  class="row">
+<div  class="col-md-offset-1"> 
+    <br />
+    <br />
+    <md-content>
+        <md-tabs   md-border-bottom="" md-dynamic-height="">
+            <md-tab label="Test Type">
+                <md-content class="md-padding">
+                    <form ng-submit="addTestType()" name="Test Type">
+                        <div class="col col-md-offset-0">
+                            <div class="widget widget-content">
+                                <table class="table table-condensed">
+                                    <tr>
+                                        <td>
+                                            <b>Enter Test Type </b> <br />
+                                            <input required="required" ng-model="testTypeName" type="text" name="testtype" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button id="btnSaveTest" type="submit" class="btn btn-primary"> Save  </button>
+                                            <button id="btnCancelTest" class="btn btn-danger"> Cancel </button>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="col-lg-offset-0">
+                                    <label class="label label-success"> {{typeSaved}}  </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </md-content>
+            </md-tab>
+            <md-tab label="Test Connection Type">
+                <md-content class="md-padding">
+                    <div class="row">
+                        <div class="col col-md-offset-0">
+                            <div class="widget widget-content">
+                                <form ng-submit="addConnectionType()" name="Test Type">
+                                    <div class="col col-md-offset-0">
+                                        <div class="widget widget-content">
+                                            <table class="table table-condensed">
+                                                <tr>
+                                                    <td>
+                                                        <b>Enter Test Connection Type </b> <br />
+                                                        <input required="required" ng-model="testConTypeInfo" type="text" name="testcontype" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <button id="btnSaveTestCon" type="submit" class="btn btn-primary"> Save  </button>
+                                                        <button id="btnCancelTestCon" class="btn btn-danger"> Cancel </button>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <div class="col-lg-offset-0">
+                                                <label ng-show="noDemoMessage" class="label label-success"> {{msgSavedTestCon}}  </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>               </div>
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+            
+            <md-tab label="Test Parameter">
+                <md-content class="md-padding">
+                    <div class="row">
+                        <div class="col col-md-offset-0">
+                            <div class="widget widget-content">
+                                <form ng-submit="addTestParameter" name="Test Type">
+                                    <div class="col col-md-offset-0">
+                                        <div class="widget widget-content">
+                                            <table class="table table-condensed">
+                                                <tr>
+                                                    <td>
+                                                        <b>Enter Test Parameter Name </b> <br />
+                                                        <input required="required" ng-model="testConTypeInfo" type="text" name="testcontype" />
+                                                    </td>
+                                                    </tr>
+                                                  <tr>
+                                                    <td>
+                                                        <b>Select Test Parameter Data Type </b> <br />
+                                                         <select ng-model="selectedParamType"  ng-change="updateParamType(selectedParamType)" ng-options="item.TestScriptParameterTypeName as item.TestScriptParameterTypeName for item in testParameters"></select>
+                                                   </td>
+
+                                                </tr>
+                                                
+                                                <tr ng-show="showLengthParam">
+                                                    <td>
+                                                        <b> Length </b> <br />
+                                                        <input required="required"   ng-model="testParamLength" type="text"  />
+                                                    </td>
+                                                </tr>
+                                                <tr ng-show="showDecPlaces">
+                                                    <td>
+                                                        <b> Number of Decimal Places Allowed </b> <br />
+                                                        <input required="required" ng-model="testParamDecPlaces" type="text" />
+                                                    </td>
+                                                </tr>
+                                                <tr ng-show="valueNeeded">
+                                                    <td>
+                                                        <b>Test Parameter Value</b> <br />
+                                                         <input required="required" ng-model="testParamValue" type="text" name="testparamValue" />
+
+                                                     </td>
+                                                </tr>
+                                                <tr ng-show="showClassWindow">
+                                                    <td>
+                                                        <b>Test Class  Name</b> <br />
+                                                        <input required="required" ng-model="testClassName" type="text"  />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <b>Select Parent Class</b> <br />
+                                                        <!---this is for the Parent Class for not having any Parent inheritance just select None -->
+                                                        <select ng-model="selectParentClass"  ng-options="item.TestClassID as item.TestClassName for item in testClasses"></select>
+                                                   </td>
+                                                </tr>
+
+
+
+                                               <tr  ng-show="showPropertyWindow"  ng-repeat="property  in testProperties" >
+                                                          <td>
+                                                               <b>Test Class Property Name</b> <br />
+                                                               <input required="required" ng-model="property.testPropertyName" type="text" name="testparamValue" />
+                                                           </td>
+                                                           <td>
+                                                               <b>Test Class Property Type</b> <br />
+                                                               <select ng-model="property.testPropertyType" ng-change="updatePropType(property.testPropertyType)" ng-options="item.TestClassPropTypeName as item.TestClassPropTypeName for item in testParameters"></select>
+                                                           </td>
+                                                   <td>
+                                                       <b>Parent Class  Name</b> <br />
+                                                       <select ng-model="selectParentClassPropType"  ng-options="item.TestClassID as item.TestClassName for item in testClasses"></select>
+                                                   </td>
+
+                                                             <!----- Recurrsion for class then below will show as Test Class Property Type as Class-->
+
+
+                                               </tr>
+                                                <tr>
+                                                    <td ng-show="showClassWindow">
+                                                        <button id="btnAddPropertyToClss"  ng-click="addProperty(testClassName)" type="button" class="btn btn-primary"> Add Property </button>
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr>
+                                                    <td>
+                                                        <button id="btnSaveTestParamter" type="submit" class="btn btn-primary"> Save  </button>
+                                                        <button id="btnCancelTestParameter" class="btn btn-danger"> Cancel </button>
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <div class="col-lg-offset-0">
+                                                <label ng-show="noDemoMessage" class="label label-success"> {{msgSavedTestParamSaved}}  </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </md-content>
+            </md-tab>
+
+        </md-tabs>
+
+    </md-content>
+
+
+  
+
+
+</div>
+
+
+    
+</div>

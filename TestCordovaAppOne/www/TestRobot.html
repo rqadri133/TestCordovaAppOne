@@ -1,0 +1,65 @@
+﻿<div ng-controller="TestRobotController as testrobotctrl" class="row">
+        <div  class="col col-md-offset-1">
+            <div class="widget widget-content">
+                <table class="table table-condensed">
+                    <tr>
+                        <td>
+                           <b>Enter Test Robot Name</b> <br />
+                            <input required="required"  ng-model="selTestRobotName" type="text" />
+                        </td>
+                        <td>
+                            <b>Select Test Robot type</b> <br />
+                            <select ng-model="selTestRobotTypeID" ng-options="item.TestRobotTypeID as item.TestRobotTypeName  for item in testRobotTypes"></select>
+                        </td>
+           
+                    </tr>
+           
+                </table>
+
+            </div>
+            
+            <div  ng-repeat="action in allActions" ng-show="showActions" class="widget widget-content">
+                <table class="table table-condensed">
+                    <tr>
+                        <td>
+                            <b>Enter Action Name</b> <br />
+                            <input required="required"   ng-model="action.selTestActionName" type="text" />
+                        </td>
+                        <td>
+                            <b>Select Class for Action</b> <br />
+                            <select ng-model="action.selTestClassForAction" ng-options="item.TestClassID as item.TestClassName for item in testClasses"></select>
+                        </td>
+
+                        <td>
+                            <b>Select Action Sequence</b> <br />
+                            <input required="required" ng-model="action.selTestActionSequence" type="number" />
+                       </td>
+                        <td>
+                            <b>Define MicroController to Test</b> <br />
+                            <select ng-model="testMicron" ng-options="item.TestMicroControllerID as item.TestMicroControllerName for item in testMicronTypes"></select>
+                        </td>
+
+
+                    </tr>
+                    
+
+                </table>
+            </div>
+            
+
+            <div>
+                <button id="btnSaveActionRobot" class="btn btn-primary"> Save   </button>
+                <button id="btnCancelActionsRobot" class="btn btn-danger"> Cancel  </button>
+                 &nbsp; <button id="btnSaveActions"  ng-click="addAction()" class="btn btn-dcyan"> Add Robot Action </button>
+
+            </div>
+
+
+
+        </div>
+
+    
+    <div>
+        <label id="btnCaseSave" class="btn btn-success"> {{testCaseCreationMessage}}  </label>
+    </div>
+</div>
